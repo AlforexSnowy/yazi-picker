@@ -31,7 +31,7 @@ Save the `config` file to:
 ```ini
 [filechooser]
 cmd=yazi-wrapper.sh
-default_dir=/home/isomitdinov
+default_dir=$HOME
 env=TERMCMD='wezterm -e'
 open_mode=suggested
 save_mode=last
