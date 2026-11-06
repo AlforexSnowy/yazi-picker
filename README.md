@@ -146,10 +146,6 @@ org.freedesktop.impl.portal.FileChooser=termfilechooser
 - Gentoo
 - And others
 
-## 📸 Screenshot
-
-_Add a screenshot or GIF here._
-
 ## 📄 License
 
 Licensed under the MIT License.
