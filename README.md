@@ -1,79 +1,153 @@
 # Terminal File Chooser (Yazi-based)
 
-A lightweight, terminal-powered file picker for Linux desktop environments that integrates a terminal file manager (`yazi`) with XDG Desktop Portals. This allows modern graphical applications to use your preferred terminal file manager for opening and saving files.
+A universal terminal-powered file chooser for Linux desktops.
 
-## 🚀 Features
+This project integrates **Yazi** with **XDG Desktop Portals**, allowing graphical applications to use a terminal file manager for opening and saving files.
 
-* **Terminal-Powered:** Uses [Yazi](https://github.com/sxyazi/yazi) for fast, modern, and Vim-like file navigation.
-* **XDG Desktop Portal Integration:** Seamlessly intercepts file chooser dialogs in modern apps (browsers, editors, etc.) and opens them via your terminal (`wezterm`).
-* **Configurable:** Easily customize your preferred terminal emulator, wrapper script, and default directories.
+Whether you're using GNOME, KDE Plasma, Hyprland, Sway, COSMIC, XFCE, or another desktop environment, you can keep file selection entirely within your terminal workflow.
 
----
+## ✨ Features
+
+- **Terminal-Powered** - Uses Yazi for fast, modern, and keyboard-driven file navigation.
+- **Desktop Portal Integration** - Intercepts file chooser dialogs from graphical applications.
+- **Distribution Agnostic** - Works on any Linux distribution that supports XDG Desktop Portals.
+- **Desktop Environment Agnostic** - Compatible with GNOME, KDE Plasma, COSMIC, Hyprland, Sway, XFCE, Cinnamon, MATE, LXQt, and others.
+- **Terminal Agnostic** - Works with WezTerm, Kitty, Ghostty, Alacritty, Foot, Konsole, Ptyxis, GNOME Terminal, Xfce Terminal, and many others.
+- **Configurable** - Easily customize the terminal emulator, wrapper script, and default directories.
+
+## 🏗 Architecture
+
+```text
+Application
+      │
+      ▼
+XDG Desktop Portal
+      │
+      ▼
+termfilechooser
+      │
+      ▼
+Terminal Emulator
+      │
+      ▼
+Yazi
+```
+
+## ⚙ Requirements
+
+- Linux
+- XDG Desktop Portals
+- Yazi
+- xdg-desktop-portal-termfilechooser
+- Any supported terminal emulator
 
 ## 📦 Installation
 
-For Arch Linux users, install the required portal backend directly from the AUR using `yay`:
+### Arch Linux
 
 ```bash
 yay -S xdg-desktop-portal-termfilechooser-hunkyburrito-git
 ```
 
----
+### Other Linux Distributions
 
-## 📂 File Locations & Setup
+Install:
 
-Place your configuration files in the following directory paths:
+- Yazi
+- xdg-desktop-portal
+- xdg-desktop-portal-termfilechooser
 
-### 1. File Chooser Configuration
-Save the `config` file to:  
-`~/.config/xdg-desktop-portal-termfilechooser/config`
+using your distribution's package manager.
+
+## 📂 Configuration
+
+### File Chooser Configuration
+
+Create:
+
+```text
+~/.config/xdg-desktop-portal-termfilechooser/config
+```
+
+Example:
 
 ```ini
 [filechooser]
 cmd=yazi-wrapper.sh
 default_dir=$HOME
-env=TERMCMD='AnyTerminal -e'
+env=TERMCMD='wezterm -e'
 open_mode=suggested
 save_mode=last
 ```
 
-* **`cmd`**: The wrapper script that launches the file manager (`yazi-wrapper.sh`).
-* **`default_dir`**: The initial directory when the file chooser opens.
-* **`env`**: Defines the terminal emulator used to run the file picker (`Any Terminal`).
-* **`open_mode` / `save_mode`**: Controls how open and save dialogs handle file paths.
-* Note: Replace "AnyTerminal" with the name of your preferred terminal emulator. Make sure it is installed and available in your system's PATH.
-* For example:
-* - WezTerm
-- Kitty
-- Ghostty
-- Ptyxis
-- Alacritty
-- Foot
-- Konsole
-- And Other terminals
+#### Configuration Options
 
----
+| Option | Description |
+|----------|----------|
+| `cmd` | Wrapper script used to launch Yazi |
+| `default_dir` | Starting directory |
+| `env` | Terminal emulator command |
+| `open_mode` | Open dialog behavior |
+| `save_mode` | Save dialog behavior |
 
-### 2. Portal Preference Configuration
-Save the `portals.conf` file to:  
-`~/.config/xdg-desktop-portal/portals.conf`
+Replace `wezterm` with your preferred terminal emulator if needed.
+
+### Portal Configuration
+
+Create:
+
+```text
+~/.config/xdg-desktop-portal/portals.conf
+```
 
 ```ini
 [preferred]
 org.freedesktop.impl.portal.FileChooser=termfilechooser
 ```
 
----
+## ✅ Compatibility
 
-## 🛠️ Requirements
+### Desktop Environments
 
-* A Linux environment supporting XDG Desktop Portals.
-* [Yazi](https://github.com/sxyazi/yazi) file manager.
-* `wezterm` (or modify `env=TERMCMD` to use your preferred terminal like `alacritty`, `kitty`, etc.).
-* `xdg-desktop-portal-termfilechooser` backend.
+- GNOME
+- KDE Plasma
+- COSMIC
+- Hyprland
+- Sway
+- XFCE
+- Cinnamon
+- MATE
+- LXQt
+- Others supporting XDG Desktop Portals
 
----
+### Terminal Emulators
+
+- WezTerm
+- Kitty
+- Ghostty
+- Alacritty
+- Foot
+- Konsole
+- Ptyxis
+- GNOME Terminal
+- Xfce Terminal
+- Many others
+
+### Linux Distributions
+
+- Arch Linux
+- Fedora
+- Ubuntu
+- Debian
+- openSUSE
+- NixOS
+- Gentoo
+- And others
+
+## 📸 Screenshot
+
+_Add a screenshot or GIF here._
 
 ## 📄 License
 
-This project is open-source and available under the [MIT License](LICENSE).
+Licensed under the MIT License.
