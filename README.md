@@ -1,6 +1,6 @@
 # Terminal File Chooser (Yazi-based)
 
-assets/example.gif
+![Demo](assets/example.gif)
 
 A universal terminal-powered file chooser for Linux desktops.
 
