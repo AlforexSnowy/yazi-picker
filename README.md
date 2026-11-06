@@ -1,5 +1,7 @@
 # Terminal File Chooser (Yazi-based)
 
+assets/example.gif
+
 A universal terminal-powered file chooser for Linux desktops.
 
 This project integrates **Yazi** with **XDG Desktop Portals**, allowing graphical applications to use a terminal file manager for opening and saving files.
